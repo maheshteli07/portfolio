@@ -52,20 +52,20 @@ const containerVariants = {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      ease: 'easeOut',
+      duration: 1.0,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 }
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 md:py-28 px-6 relative overflow-hidden">
+    <section id="skills" className="scroll-mt-16 py-20 md:py-28 px-0 relative overflow-hidden">
       {/* Background animation */}
       <motion.div
         animate={{ y: [0, -30, 0], opacity: [0.2, 0.5, 0.2] }}
@@ -73,11 +73,12 @@ export default function Skills() {
         className="absolute -top-20 -right-20 w-60 h-60 bg-accent2/10 rounded-full blur-3xl pointer-events-none"
       />
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <SectionHeading title="Skills & Expertise" />
+      <div className="flex justify-center w-full">
+        <div className="max-w-6xl relative z-10 w-full px-6">
+          <SectionHeading title="Skills & Expertise" />
 
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          <motion.div
+            className="flex flex-wrap justify-start gap-6 md:gap-8 w-full"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -90,7 +91,7 @@ export default function Skills() {
                 key={category.title}
                 variants={cardVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="glass-card rounded-2xl p-6 md:p-8 flex flex-col gap-5 group hover:border-accent/50 cursor-default transition-all"
+                className="glass-card rounded-2xl p-6 md:p-8 flex flex-col items-start gap-5 group hover:border-accent/50 cursor-default transition-all w-full sm:max-w-xs md:w-80"
               >
                 {/* Icon */}
                 <motion.div
@@ -102,7 +103,7 @@ export default function Skills() {
                 </motion.div>
 
                 {/* Content */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 text-left">
                   <h3 className="font-display font-bold text-lg md:text-xl text-bright group-hover:text-accent transition-colors">
                     {category.title}
                   </h3>
@@ -112,7 +113,7 @@ export default function Skills() {
                 </div>
 
                 {/* Skills tags */}
-                <div className="flex flex-wrap gap-2 mt-auto pt-3">
+                <div className="flex flex-wrap gap-2 mt-auto pt-3 justify-start">
                   {category.skills.map((skill) => (
                     <motion.span
                       key={skill}
@@ -128,18 +129,17 @@ export default function Skills() {
           })}
         </motion.div>
 
-        {/* All tech stack */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 md:mt-20"
+          className="mt-16 md:mt-20 w-full"
         >
-          <motion.p className="text-center text-muted font-mono text-sm md:text-base mb-6 uppercase tracking-widest">
+          <motion.p className="text-left text-muted font-mono text-sm md:text-base mb-6 uppercase tracking-widest">
             Tech Stack
           </motion.p>
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+          <div className="flex flex-wrap justify-start gap-3 md:gap-4">
             {['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript', 'C++', 'Python', 'Git', 'GitHub', 'TailwindCSS', 'DSA'].map((tech, i) => (
               <motion.span
                 key={tech}
@@ -156,6 +156,7 @@ export default function Skills() {
           </div>
         </motion.div>
       </div>
+    </div>
     </section>
   )
 }

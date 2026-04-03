@@ -46,7 +46,7 @@ export default function Hero() {
       />
 
       <motion.div
-        className="max-w-5xl mx-auto text-center relative z-10"
+        className="max-w-5xl mx-auto text-center flex flex-col items-center w-full relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -60,10 +60,10 @@ export default function Hero() {
 
         <motion.h1
           variants={itemVariants}
-          className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-bright mb-8 leading-tight"
+          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-bright mb-8 leading-tight"
         >
           <motion.div
-            className="flex flex-row items-center justify-center gap-2 md:gap-3"
+            className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
@@ -95,9 +95,9 @@ export default function Hero() {
 
         <motion.p
           variants={itemVariants}
-          className="text-base sm:text-lg md:text-xl text-muted/80 max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-muted/80 max-w-3xl mx-auto mb-12 leading-relaxed text-center"
         >
-          Building scalable applications with modern technologies. CGPA: 9.42 | Siddaganga Institute of Technology
+          Building scalable applications with modern technologies. CGPA: 9.42 | Siddaganga Institute of Technology, Tumkur
         </motion.p>
 
         <motion.div

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,13 +12,17 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #0a0e27;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #0a0e27 0%, #16213e 100%);
+  background-attachment: fixed;
   color: #e0e0e0;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::-webkit-scrollbar {
@@ -42,6 +48,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .glass-card:hover {
@@ -51,7 +58,7 @@ body {
 
 /* Typography utilities */
 .font-display {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
 }
 
@@ -97,75 +104,13 @@ body {
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Custom cursor */
-.custom-cursor {
-  cursor: none;
-}
-
-.cursor-trail {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, #00d4ff, #00ccff);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9997;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.6), inset 0 0 4px rgba(255, 255, 255, 0.3);
-  filter: blur(0.5px);
-}
-
-.cursor-core {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), #00d4ff);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  box-shadow: 
-    0 0 10px rgba(0, 212, 255, 0.8),
-    0 0 20px rgba(0, 212, 255, 0.5),
-    inset -2px -2px 4px rgba(0, 150, 200, 0.6);
-  transition: scale 0.2s ease-out;
-}
-
-.cursor-glow {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  border: 2px solid rgba(0, 212, 255, 0.3);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  box-shadow: 
-    0 0 20px rgba(0, 212, 255, 0.4),
-    0 0 40px rgba(0, 212, 255, 0.2),
-    inset 0 0 15px rgba(0, 212, 255, 0.1);
-  backdrop-filter: blur(1px);
-  transition: opacity 0.2s ease-out, scale 0.2s ease-out;
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 
-      0 0 20px rgba(0, 212, 255, 0.4),
-      0 0 40px rgba(0, 212, 255, 0.2),
-      inset 0 0 15px rgba(0, 212, 255, 0.1);
-  }
-  50% {
-    box-shadow: 
-      0 0 25px rgba(0, 212, 255, 0.6),
-      0 0 50px rgba(0, 212, 255, 0.3),
-      inset 0 0 20px rgba(0, 212, 255, 0.15);
-  }
-}
-
 /* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -173,8 +118,13 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .animate-fade-in {
@@ -186,9 +136,11 @@ body {
   h1 {
     font-size: 2rem;
   }
+
   h2 {
     font-size: 1.75rem;
   }
+
   h3 {
     font-size: 1.25rem;
   }
@@ -198,9 +150,11 @@ body {
   h1 {
     font-size: 3.5rem;
   }
+
   h2 {
     font-size: 2.5rem;
   }
+
   h3 {
     font-size: 1.5rem;
   }

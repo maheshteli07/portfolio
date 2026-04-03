@@ -26,7 +26,7 @@ const itemVariants = {
 
 export default function Positions() {
   return (
-    <section id="positions" className="py-32 md:py-40 px-6 relative overflow-hidden">
+    <section id="positions" className="scroll-mt-16 py-10 md:py-16 px-6 relative overflow-hidden">
       {/* Background animation */}
       <motion.div
         animate={{ y: [0, 20, 0], x: [0, -10, 0] }}

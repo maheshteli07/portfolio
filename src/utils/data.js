@@ -43,7 +43,7 @@ export const PROJECTS = [
     id: 1,
     title: 'QR-Based Smart Retail Checkout & Exit Verification System',
     description: 'A comprehensive retail solution with QR code-based digital cart, secure payment gateway, and theft prevention through exit verification.',
-    tech: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Firebase', 'Razorpay API', 'QR Libraries'],
+    tech: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Razorpay API', 'QR Libraries'],
     features: [
       'QR code scanning for item addition to digital cart',
       'Secure digital payment system integration',
@@ -56,7 +56,7 @@ export const PROJECTS = [
     id: 2,
     title: 'Hospital OPD Management System',
     description: 'A complete patient and appointment management system with secure authentication and REST API backend.',
-    tech: ['React.js', 'Tailwind CSS', 'Spring Boot', 'MongoDB', 'JWT Authentication'],
+    tech: ['React.js', 'Tailwind CSS', 'Spring Boot', 'MongoDB','Node.js'],
     features: [
       'Patient record management',
       'Doctor profile management',
@@ -70,7 +70,7 @@ export const PROJECTS = [
 
 // Education data
 export const EDUCATION = {
-  institution: 'Siddaganga Institute Of Technology',
+  institution: 'Siddaganga Institute Of Technology, Tumkur',
   degree: 'Bachelor of Engineering',
   field: 'Computer Science & Engineering (Specialization: AIML)',
   cgpa: '9.42',
@@ -81,27 +81,41 @@ export const EDUCATION = {
 // Technical Contributions
 export const TECHNICAL_CONTRIBUTIONS = [
   {
-    id: 1,
-    title: 'WIE CODE 2K25-26 – IEEE SIT Student Branch Website',
-    organization: 'IEEE SIT Student Branch',
-    role: 'Frontend Developer',
-    description: 'Collaborated with IEEE team to build the official student branch website with responsive design and modern UI.',
-    contributions: [
-      'Built frontend using ReactJS and CSS',
-      'Implemented responsive UI for multiple device sizes',
-      'Ensured seamless user experience across platforms'
-    ],
-    tech: ['ReactJS', 'CSS', 'JavaScript'],
-  },
+  id: 1,
+  title: 'WIE CODE 2K25-26',
+  organization: 'IEEE SIT Student Branch Website',
+  role: 'Frontend Developer',
+  description: 'Developed a responsive website to promote IEEE WIE CODE events and initiatives.',
+  contributions: [
+    'Designed and implemented responsive UI using ReactJS and CSS.',
+    'Collaborated with team members to enhance user experience.',
+    
+  ],
+  tech: ['ReactJS', 'HTML', 'CSS'],
+},
+{
+  id: 2,
+  title: 'IDEEEas 2K25-26',
+  organization: 'IEEE SIT Student Branch Website',
+  role: 'Frontend Developer',
+  description: 'Built an event promotion website for IEEE IDEEEas using modern frontend technologies.',
+  contributions: [
+    'Developed responsive landing pages using ReactJS,Tailwind CSS.',
+    'Integrated event details, speaker info, and registration flow.',
+    
+  ],
+  tech: ['ReactJS', 'Tailwind CSS', 'JavaScript'],
+}
 ]
 
 // Achievements - EXACT from resume (2 items only)
 export const ACHIEVEMENTS = [
   {
     id: 1,
-    year: '2024',
-    title: '7th Rank at State Level in SSLC',
-    detail: 'Achieved 7th rank at state level in Secondary School Leaving Certificate examination.',
+    year: '2022',
+    title: 'Ranked 7th at the State Level in SSLC board examinations',
+    detail: 'Achieved 7th rank at state level in Secondary School Leaving Certificate examination with 99.04% score.',
+    score: '99.04%',
     icon: '🏆',
     color: '#FFD700',
   },
@@ -112,6 +126,14 @@ export const ACHIEVEMENTS = [
     detail: 'Secured position in top 10 teams at Thinkathon Hackathon project competition.',
     icon: '🚀',
     color: '#00d4ff',
+  },
+  {
+    id: 3,
+    year: '2025',
+    title: '150+ DSA Problems Solved on LeetCode',
+    detail: 'Solved 150+ Data Structures and Algorithms problems on LeetCode, strengthening problem-solving skills and algorithmic thinking.',
+    icon: '💻',
+    color: '#FFA500',
   },
 ]
 

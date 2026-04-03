@@ -27,7 +27,7 @@ const itemVariants = {
 
 export default function TechnicalContributions() {
   return (
-    <section id="contributions" className="py-32 md:py-40 px-6 relative overflow-hidden">
+    <section id="contributions" className="scroll-mt-16 py-10 md:py-16 px-0 relative overflow-hidden">
       {/* Background animation */}
       <motion.div
         animate={{ opacity: [0.3, 0.6, 0.3] }}
@@ -35,7 +35,8 @@ export default function TechnicalContributions() {
         className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent pointer-events-none"
       />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="flex justify-center w-full">
+        <div className="max-w-6xl relative z-10 w-full px-6">
         <SectionHeading
           tag="// 06. contributions"
           title="Technical Contributions"
@@ -56,7 +57,7 @@ export default function TechnicalContributions() {
               whileHover={{ x: 8 }}
               className="glass-card rounded-2xl p-8 md:p-10 hover:border-accent/50 transition-all"
             >
-              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center mb-8">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start mb-8 text-left">
                 <motion.div
                   className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center text-white"
                   animate={{ rotate: [0, 10, -10, 0] }}
@@ -65,7 +66,7 @@ export default function TechnicalContributions() {
                   <FiGithub size={40} />
                 </motion.div>
 
-                <div className="flex-1">
+                <div className="flex-1 flex flex-col items-start">
                   <motion.h3
                     className="font-display font-bold text-3xl md:text-4xl text-bright mb-2"
                     animate={{ opacity: [1, 0.9, 1] }}
@@ -82,17 +83,17 @@ export default function TechnicalContributions() {
                 </div>
               </div>
 
-              <p className="text-lg md:text-xl text-muted leading-relaxed mb-8">
+              <p className="text-lg md:text-xl text-muted leading-relaxed mb-8 text-left">
                 {contrib.description}
               </p>
 
               {/* Contributions List */}
-              <div className="mb-8">
-                <h4 className="font-semibold text-xl md:text-2xl text-bright mb-4 flex items-center gap-2">
-                  <FiCode size={24} className="text-accent" />
+              <div className="mb-8 flex flex-col items-start text-left">
+                <h4 className="font-semibold text-xl md:text-2xl text-bright mb-4 flex items-center justify-start gap-2 w-full">
+                  <FiCode size={24} className="text-accent hidden md:block" />
                   Key Contributions
                 </h4>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full text-left">
                   {contrib.contributions.map((contribution, i) => (
                     <motion.li
                       key={i}
@@ -102,7 +103,7 @@ export default function TechnicalContributions() {
                       transition={{ delay: i * 0.1 }}
                       className="flex items-start gap-3 p-3 rounded-lg bg-surface/30 border border-border/20"
                     >
-                      <FiGitBranch className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <FiGitBranch className="text-accent flex-shrink-0 mt-1 hidden md:block" size={20} />
                       <span className="text-base md:text-lg text-muted">{contribution}</span>
                     </motion.li>
                   ))}
@@ -110,9 +111,9 @@ export default function TechnicalContributions() {
               </div>
 
               {/* Tech Stack */}
-              <div>
+              <div className="flex flex-col items-start text-left">
                 <h4 className="font-semibold text-lg md:text-xl text-bright mb-3">Tech Stack</h4>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-start gap-3">
                   {contrib.tech.map((tech, i) => (
                     <motion.span
                       key={i}
@@ -128,6 +129,7 @@ export default function TechnicalContributions() {
           ))}
         </motion.div>
       </div>
+    </div>
     </section>
   )
 }

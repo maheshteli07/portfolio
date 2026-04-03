@@ -13,28 +13,29 @@ const containerVariants = {
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, x: -30 },
+  hidden: { opacity: 0, x: -50 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.6,
-      ease: 'easeOut',
+      duration: 1.0,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 }
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-32 md:py-40 px-6 relative overflow-hidden">
+    <section id="achievements" className="scroll-mt-16 py-10 md:py-16 px-0 relative overflow-hidden">
       {/* Background animation */}
       <motion.div
-        animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
-        transition={{ duration: 8, repeat: Infinity }}
+        animate={{ y: [0, -8, 0], x: [0, 4, 0] }}
+        transition={{ duration: 15, repeat: Infinity }}
         className="absolute top-20 right-20 w-72 h-72 bg-accent2/10 rounded-full blur-3xl pointer-events-none"
       />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="flex justify-center w-full">
+        <div className="max-w-6xl relative z-10 w-full px-6">
         <SectionHeading
           title="Achievements"
           subtitle="Milestones and accomplishments that demonstrate my commitment to excellence."
@@ -51,7 +52,7 @@ export default function Achievements() {
           />
 
           <motion.div
-            className="flex flex-col gap-10 md:gap-12"
+            className="flex flex-col gap-4 md:gap-6"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -62,46 +63,45 @@ export default function Achievements() {
                 key={i}
                 variants={itemVariants}
                 whileHover={{ x: 6 }}
-                className="flex gap-6 md:gap-8 items-start transition-all"
+                className="flex gap-4 md:gap-5 items-start transition-all"
               >
                 {/* Node */}
                 <motion.div
-                  className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl border items-center justify-center text-2xl md:text-3xl font-bold z-10 bg-bg hidden sm:flex flex-col"
+                  className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg border items-center justify-center text-lg md:text-xl font-bold z-10 bg-bg hidden sm:flex flex-col"
                   style={{ borderColor: `${item.color}40`, color: item.color }}
-                  animate={{ scale: [1, 1.15, 1] }}
-                  transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.2 }}
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: i * 0.2 }}
                 >
                   {item.icon}
                 </motion.div>
 
                 {/* Content */}
                 <motion.div
-                  className="glass-card rounded-xl p-6 md:p-8 flex-1 flex flex-col gap-3 hover:border-accent/50"
+                  className="glass-card rounded-lg p-4 flex-1 flex flex-col items-start gap-3 md:gap-1.5 hover:border-accent/50 text-left"
                   whileHover={{ scale: 1.02, y: -4 }}
                 >
-                  <div className="flex items-center justify-between gap-3 flex-wrap">
+                  <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between gap-2 md:gap-3 w-full">
                     <motion.h3
-                      className="font-display font-bold text-xl md:text-2xl text-bright hover:text-accent transition-colors"
-                      animate={{ opacity: [1, 0.8, 1] }}
-                      transition={{ duration: 3, repeat: Infinity, delay: i * 0.1 }}
+                      className="font-display font-bold text-base md:text-lg text-bright hover:text-accent transition-colors"
                     >
                       {item.title}
                     </motion.h3>
                     <motion.span
-                      className="font-mono text-sm md:text-base px-3 py-1.5 md:px-4 md:py-2 rounded-full border font-semibold"
+                      className="font-mono text-xs px-3 py-1 md:px-2.5 md:py-1 rounded-full border font-semibold"
                       style={{ borderColor: `${item.color}30`, color: item.color }}
                       whileHover={{ scale: 1.1 }}
                     >
                       {item.year}
                     </motion.span>
                   </div>
-                  <p className="text-base md:text-lg text-muted leading-relaxed">{item.detail}</p>
+                  <p className="text-xs md:text-sm text-muted leading-relaxed text-left w-full">{item.detail}</p>
                 </motion.div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </div>
+    </div>
     </section>
   )
 }

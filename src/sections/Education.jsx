@@ -27,7 +27,7 @@ const itemVariants = {
 
 export default function Education() {
   return (
-    <section id="education" className="py-32 md:py-40 px-6 relative overflow-hidden">
+    <section id="education" className="scroll-mt-16 py-10 md:py-16 px-6 relative overflow-hidden">
       {/* Background animation */}
       <motion.div
         animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
@@ -55,8 +55,15 @@ export default function Education() {
             whileHover={{ y: -8, scale: 1.02 }}
             className="glass-card rounded-2xl p-8 md:p-10 flex flex-col gap-8 hover:border-accent/50"
           >
-            <div className="flex items-start justify-between gap-6">
-              <div className="flex-1">
+            <div className="flex flex-col md:flex-row items-start justify-between gap-6 text-left">
+              <motion.div
+                className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-accent to-accent2 flex md:hidden items-center justify-center text-white text-3xl md:text-4xl mb-2 md:mb-0"
+                animate={{ rotate: [0, 5, -5, 0] }}
+                transition={{ duration: 4, repeat: Infinity }}
+              >
+                <FiBook size={40} />
+              </motion.div>
+              <div className="flex-1 flex flex-col items-start">
                 <motion.h3
                   className="font-display font-bold text-3xl md:text-4xl text-bright mb-2"
                   animate={{ opacity: [1, 0.9, 1] }}
@@ -70,7 +77,7 @@ export default function Education() {
                 <p className="text-lg md:text-xl text-muted">{EDUCATION.institution}</p>
               </div>
               <motion.div
-                className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center text-white text-3xl md:text-4xl"
+                className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-accent to-accent2 hidden md:flex items-center justify-center text-white text-3xl md:text-4xl"
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
@@ -110,7 +117,7 @@ export default function Education() {
           >
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="glass-card rounded-xl p-6 md:p-8 hover:border-accent/50"
+              className="glass-card rounded-xl p-6 md:p-8 hover:border-accent/50 text-left items-start flex flex-col"
             >
               <h4 className="font-display font-bold text-2xl md:text-3xl text-bright mb-4">
                 Specialization
@@ -122,12 +129,12 @@ export default function Education() {
 
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="glass-card rounded-xl p-6 md:p-8 hover:border-accent/50"
+              className="glass-card rounded-xl p-6 md:p-8 hover:border-accent/50 text-left flex flex-col items-start"
             >
               <h4 className="font-display font-bold text-2xl md:text-3xl text-bright mb-4">
                 Focus Areas
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-3 w-full">
                 {['Data Structures & Algorithms', 'Web Development', 'System Design', 'Cloud Technologies'].map((item, i) => (
                   <motion.li
                     key={i}
@@ -135,7 +142,7 @@ export default function Education() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="text-lg md:text-xl text-muted flex items-center gap-3"
+                    className="text-lg md:text-xl text-muted flex items-center gap-3 justify-start"
                   >
                     <span className="w-2 h-2 rounded-full bg-accent"></span>
                     {item}

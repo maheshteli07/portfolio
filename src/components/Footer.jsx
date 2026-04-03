@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion'
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiInstagram, FiMail } from 'react-icons/fi'
+import { SiLeetcode } from 'react-icons/si'
+import { CONTACT_INFO } from '../utils/data'
 
 export default function Footer() {
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com/matelidev', label: 'GitHub' },
-    { icon: FiLinkedin, href: 'https://linkedin.com/in/matelidev', label: 'LinkedIn' },
-    { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: FiMail, href: 'mailto:mahesh.teli@email.com', label: 'Email' },
+    { icon: FiGithub, href: 'https://github.com/maheshteli07', label: 'GitHub' },
+    { icon: FiLinkedin, href: 'https://linkedin.com/in/mahesh-teli-328b28332/', label: 'LinkedIn' },
+    { icon: SiLeetcode, href: 'https://leetcode.com/u/maheshteli07/', label: 'LeetCode' },
+    { icon: FiInstagram, href: 'https://instagram.com/mahesh__teli', label: 'Instagram' },
+    { icon: FiMail, href: `mailto:${CONTACT_INFO.email}`, label: 'Email' },
   ]
 
   return (
