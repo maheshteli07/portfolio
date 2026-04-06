@@ -4,107 +4,200 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Reset ──────────────────────────────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ─── Base ───────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  background-color: #0a0e27;
+  background-color: #0A0F1C;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0a0e27 0%, #16213e 100%);
+  background: #0A0F1C;
   background-attachment: fixed;
-  color: #e0e0e0;
+  color: #E5E7EB;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0e27;
+  background: #0A0F1C;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00d4ff;
+  background: linear-gradient(135deg, #22D3EE, #8B5CF6);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00a8cc;
+  background: linear-gradient(135deg, #8B5CF6, #22D3EE);
 }
 
-/* Glass morphism effect */
+/* ─── MAIN ATTRACTION: Gradient ──────────────────────────────────────────── */
+/* Use class="gradient-bg" on buttons, borders, highlights */
+.gradient-bg {
+  background: linear-gradient(135deg, #22D3EE, #8B5CF6);
+}
+
+/* Use class="gradient-text" on headings */
+.gradient-text {
+  background: linear-gradient(135deg, #22D3EE, #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── SECRET SAUCE: Glow Effect ──────────────────────────────────────────── */
+.glow {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+.glow-violet {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
+}
+
+/* ─── Glass Cards ────────────────────────────────────────────────────────── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1A2238;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
   will-change: transform;
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(0, 212, 255, 0.2);
+  border-color: rgba(34, 211, 238, 0.25);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
 }
 
-/* Typography utilities */
+/* ─── Gradient Buttons ───────────────────────────────────────────────────── */
+.btn-gradient {
+  background: linear-gradient(135deg, #22D3EE, #8B5CF6);
+  color: #0A0F1C;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gradient:hover {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-gradient:active {
+  transform: translateY(0);
+}
+
+/* Gradient border trick — use for outlined gradient buttons */
+.btn-gradient-outline {
+  background: transparent;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  color: #E5E7EB;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient-outline::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #22D3EE, #8B5CF6);
+  z-index: -1;
+}
+
+.btn-gradient-outline:hover {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
 .font-display {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
 }
 
 .section-tag {
-  color: #00d4ff;
+  color: #22D3EE;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-/* Text color utilities */
+/* ─── Text Utilities ─────────────────────────────────────────────────────── */
 .text-bright {
-  color: #ffffff;
+  color: #E5E7EB;
 }
 
 .text-text {
-  color: #e0e0e0;
+  color: #E5E7EB;
 }
 
 .text-muted {
-  color: #a0a0a0;
+  color: #9CA3AF;
 }
 
 .text-accent {
-  color: #00d4ff;
+  color: #22D3EE;
 }
 
 .text-accent2 {
-  color: #ff006e;
+  color: #8B5CF6;
 }
 
-/* Background utilities */
+.text-highlight {
+  color: #34D399;
+}
+
+/* ─── Background Utilities ───────────────────────────────────────────────── */
 .bg-bg {
-  background-color: #0a0e27;
+  background-color: #0A0F1C;
+}
+
+.bg-navy {
+  background-color: #111827;
+}
+
+.bg-card {
+  background-color: #1A2238;
 }
 
 .bg-surface {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #1A2238;
 }
 
-/* Border utilities */
+/* ─── Border Utilities ───────────────────────────────────────────────────── */
 .border-border {
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Animations */
+.border-glow {
+  border-color: rgba(34, 211, 238, 0.25);
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -127,11 +220,27 @@ body {
   }
 }
 
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.6);
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out;
 }
 
-/* Responsive typography */
+.animate-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ─── Responsive Typography ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;

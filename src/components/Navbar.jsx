@@ -212,9 +212,8 @@ function MobileMenu({ isOpen, setIsOpen, activeItem }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ delay: 0.1 + i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className={`pointer-events-auto flex items-center justify-center relative group w-full max-w-[280px] py-4 rounded-2xl border transition-all duration-300 overflow-hidden ${
-                    isActive ? 'bg-accent/10 border-accent/40 shadow-[0_4px_30px_rgba(0,212,255,0.2)]' : 'bg-white/[0.03] border-white/10 hover:bg-white/[0.08] hover:border-white/20'
-                  }`}
+                  className={`pointer-events-auto flex items-center justify-center relative group w-full max-w-[280px] py-4 rounded-2xl border transition-all duration-300 overflow-hidden ${isActive ? 'bg-accent/10 border-accent/40 shadow-[0_4px_30px_rgba(0,212,255,0.2)]' : 'bg-white/[0.03] border-white/10 hover:bg-white/[0.08] hover:border-white/20'
+                    }`}
                   style={{ backdropFilter: 'blur(16px)' }}
                 >
                   <span className={`text-2xl font-display font-medium tracking-wide transition-colors duration-300 ${isActive ? 'text-accent' : 'text-white/80 group-hover:text-white'}`}>

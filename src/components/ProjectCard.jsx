@@ -40,28 +40,31 @@ export default function ProjectCard({ project, index }) {
         </div>
 
         {/* Links */}
-        <div className="flex gap-4 mt-auto pt-4 border-t border-border">
+        <div className="flex gap-3 mt-auto pt-4 border-t border-white/5">
           <motion.a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            className="flex items-center gap-2 text-base md:text-lg font-semibold text-accent hover:text-accent/80 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-black font-semibold hover:scale-105 transition flex items-center gap-2 text-sm"
           >
-            <FiGithub size={22} />
-            Code
+            <FiGithub size={18} />
+            GitHub
           </motion.a>
           <motion.a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            className="flex items-center gap-2 text-base md:text-lg font-semibold text-accent hover:text-accent/80 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-4 py-2 rounded-lg border border-white/10 text-white font-semibold hover:bg-white/5 transition flex items-center gap-2 text-sm"
           >
-            <FiExternalLink size={22} />
-            Live
+            <FiExternalLink size={18} />
+            Live Demo
           </motion.a>
         </div>
+
       </div>
     </motion.div>
   )

@@ -4,7 +4,7 @@ import { FiCode, FiBook, FiZap } from 'react-icons/fi'
 
 const CARDS = [
   { icon: FiCode, title: 'MERN Stack Developer', desc: 'Building scalable web applications with React, Node.js, Express, and MongoDB.' },
-  { icon: FiBook, title: 'DSA Enthusiast', desc: 'Passionate about solving complex problems using Java and C++ with optimal Data Structures & Algorithms.' },
+  { icon: FiBook, title: 'DSA Enthusiast', desc: 'Passionate about solving complex problems using Java with optimal Data Structures & Algorithms.' },
   { icon: FiZap, title: 'Problem Solver', desc: 'Strong foundation in OOP, Operating Systems, and system design principles.' },
 ]
 

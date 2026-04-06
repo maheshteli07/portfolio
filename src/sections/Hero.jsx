@@ -105,28 +105,24 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-6 justify-center mt-12"
         >
           <motion.a
-            href="#about"
-            whileHover={{ scale: 1.05, y: -4 }}
+            href="#projects"
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 md:px-10 md:py-5 bg-gradient-to-r from-accent to-accent/80 text-bg rounded-xl font-semibold text-lg md:text-xl flex items-center justify-center gap-3 group transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-black font-semibold hover:scale-105 transition flex items-center justify-center gap-2"
           >
-            <span>Explore My Work</span>
-            <motion.div
-              animate={{ x: [0, 6, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <FiArrowRight size={24} />
-            </motion.div>
+            Explore My Work
+            <FiArrowRight size={20} />
           </motion.a>
           <motion.a
             href="#contact"
-            whileHover={{ scale: 1.05, y: -4, borderColor: 'rgba(0, 212, 255, 0.6)' }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 md:px-10 md:py-5 border-2 border-accent text-accent rounded-xl font-semibold text-lg md:text-xl hover:bg-accent/10 transition-all duration-300"
+            className="px-6 py-3 rounded-xl border border-white/10 text-white font-semibold hover:bg-white/5 transition flex items-center justify-center"
           >
             Get In Touch
           </motion.a>
         </motion.div>
+
       </motion.div>
     </section>
   )

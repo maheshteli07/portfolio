@@ -56,7 +56,7 @@ export const PROJECTS = [
     id: 2,
     title: 'Hospital OPD Management System',
     description: 'A complete patient and appointment management system with secure authentication and REST API backend.',
-    tech: ['React.js', 'Tailwind CSS', 'Spring Boot', 'MongoDB','Node.js'],
+    tech: ['React.js', 'Tailwind CSS', 'Spring Boot', 'MongoDB', 'Node.js'],
     features: [
       'Patient record management',
       'Doctor profile management',
@@ -81,31 +81,31 @@ export const EDUCATION = {
 // Technical Contributions
 export const TECHNICAL_CONTRIBUTIONS = [
   {
-  id: 1,
-  title: 'WIE CODE 2K25-26',
-  organization: 'IEEE SIT Student Branch Website',
-  role: 'Frontend Developer',
-  description: 'Developed a responsive website to promote IEEE WIE CODE events and initiatives.',
-  contributions: [
-    'Designed and implemented responsive UI using ReactJS and CSS.',
-    'Collaborated with team members to enhance user experience.',
-    
-  ],
-  tech: ['ReactJS', 'HTML', 'CSS'],
-},
-{
-  id: 2,
-  title: 'IDEEEas 2K25-26',
-  organization: 'IEEE SIT Student Branch Website',
-  role: 'Frontend Developer',
-  description: 'Built an event promotion website for IEEE IDEEEas using modern frontend technologies.',
-  contributions: [
-    'Developed responsive landing pages using ReactJS,Tailwind CSS.',
-    'Integrated event details, speaker info, and registration flow.',
-    
-  ],
-  tech: ['ReactJS', 'Tailwind CSS', 'JavaScript'],
-}
+    id: 1,
+    title: 'WIE CODE 2K25-26',
+    organization: 'IEEE SIT Student Branch Website',
+    role: 'Frontend Developer',
+    description: 'Developed a responsive website to promote IEEE WIE CODE events and initiatives.',
+    contributions: [
+      'Designed and implemented responsive UI using ReactJS and CSS.',
+      'Collaborated with team members to enhance user experience.',
+
+    ],
+    tech: ['ReactJS', 'HTML', 'CSS'],
+  },
+  {
+    id: 2,
+    title: 'IDEEEas 2K25-26',
+    organization: 'IEEE SIT Student Branch Website',
+    role: 'Frontend Developer',
+    description: 'Built an event promotion website for IEEE IDEEEas using modern frontend technologies.',
+    contributions: [
+      'Developed responsive landing pages using ReactJS,Tailwind CSS.',
+      'Designed and implemented a responsive and user-friendly navigation bar, ensuring smooth navigation and improved user experience.',
+
+    ],
+    tech: ['ReactJS', 'Tailwind CSS', 'JavaScript'],
+  }
 ]
 
 // Achievements - EXACT from resume (2 items only)
@@ -129,7 +129,7 @@ export const ACHIEVEMENTS = [
   },
   {
     id: 3,
-    year: '2025',
+    year: '2025-26',
     title: '150+ DSA Problems Solved on LeetCode',
     detail: 'Solved 150+ Data Structures and Algorithms problems on LeetCode, strengthening problem-solving skills and algorithmic thinking.',
     icon: '💻',

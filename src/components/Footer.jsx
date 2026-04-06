@@ -51,7 +51,7 @@ export default function Footer() {
             transition={{ delay: 0.2 }}
           >
             <h4 className="text-xl font-bold text-bright mb-4">Follow Me</h4>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
