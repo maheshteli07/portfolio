@@ -18,7 +18,7 @@ function App() {
     // Synchronize with Loader.jsx timeout
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 2000)
+    }, 3500)
     return () => clearTimeout(timer)
   }, [])
 

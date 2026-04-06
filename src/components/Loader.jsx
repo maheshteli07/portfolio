@@ -86,7 +86,7 @@ export default function Loader() {
     }
     window.addEventListener('resize', handleResize)
 
-    const timer = setTimeout(() => setComplete(true), 2400)
+    const timer = setTimeout(() => setComplete(true), 3500)
 
     return () => {
       cancelAnimationFrame(animationFrameId)
@@ -98,65 +98,114 @@ export default function Loader() {
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 2, filter: 'blur(30px)' }}
-      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-0 bg-[#06080F] z-[99999] flex flex-col items-center justify-center overflow-hidden"
+      exit={{ opacity: 0, transition: { duration: 1.2, ease: "easeInOut" } }}
+      className="fixed inset-0 bg-[#020408] z-[99999] flex flex-col items-center justify-center overflow-hidden"
     >
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-40" />
+      {/* Neural Structure Background */}
+      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50" />
+      
+      {/* Subtle Scanline Overlay */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,4,8,0.6)_100%)] z-0" />
 
-      {/* Central Branding */}
-      <div className="relative z-10 flex flex-col items-center gap-6">
-        <div className="relative group">
-          {/* Outer Ring Glow */}
+      {/* Central Branding: High-Luminosity Orbital "MT" Logotype */}
+      <div className="relative z-10 flex flex-col items-center">
+        <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center">
+          
+          {/* Enhanced "Neural Light" Glow (High Luminosity) */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
-            className="absolute -inset-10 rounded-full bg-primary/10 blur-[60px]"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.8, 0.4] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute w-44 h-44 md:w-60 md:h-60 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-[70px]"
           />
 
-          {/* Sophisticated Text Logo */}
-          <motion.h1
-            initial={{ y: 20, opacity: 0, letterSpacing: '0.2em' }}
-            animate={{ y: 0, opacity: 1, letterSpacing: '0.8em' }}
-            transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-primary to-secondary relative flex flex-col items-center"
+          {/* Rotating Layer 1: Clockwise (Radiant) */}
+          <motion.svg
+            animate={{ rotate: 360 }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 w-full h-full filter drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]"
+            viewBox="0 0 100 100"
           >
-            MAHESH
-            <motion.div
-              animate={{ x: [-10, 10, -10], opacity: [0.3, 0.7, 0.3] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="h-1 w-full mt-4 bg-gradient-to-r from-transparent via-primary to-transparent blur-sm"
+            <circle
+              cx="50" cy="50" r="48"
+              fill="none"
+              stroke="url(#mt-luxury-grad)"
+              strokeWidth="0.8"
+              strokeDasharray="15 30"
+              className="opacity-60"
             />
-          </motion.h1>
+          </motion.svg>
+
+          {/* Rotating Layer 2: Counter-Clockwise (Ethereal) */}
+          <motion.svg
+            animate={{ rotate: -360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 w-full h-full"
+            viewBox="0 0 100 100"
+          >
+             <circle
+              cx="50" cy="50" r="42"
+              fill="none"
+              stroke="#FFFFFF"
+              strokeWidth="0.3"
+              strokeDasharray="2 10"
+              className="opacity-40"
+            />
+          </motion.svg>
+
+          {/* Inner Glowing Orbit / Sphere */}
+          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center border border-white/10 bg-white/[0.03] backdrop-blur-md shadow-[0_0_40px_rgba(34,211,238,0.2),inset_0_0_20px_rgba(34,211,238,0.15)]">
+            
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="mt-luxury-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#22D3EE" />
+                  <stop offset="50%" stopColor="#3B82F6" />
+                  <stop offset="100%" stopColor="#8B5CF6" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            {/* MT Monogram - Brilliantly Illuminated */}
+            <motion.h1
+              initial={{ y: 20, opacity: 0, letterSpacing: '-0.15em' }}
+              animate={{ y: 0, opacity: 1, letterSpacing: '0.05em' }}
+              transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-primary to-secondary relative z-10 drop-shadow-[0_4px_15px_rgba(255,255,255,0.4)]"
+            >
+              MT
+            </motion.h1>
+
+            {/* Heartbeat Pulse (Internal Reactor) */}
+            <motion.div
+              animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-2xl pointer-events-none"
+            />
+          </div>
         </div>
 
-        {/* Minimalist Progress Indicator */}
-        <div className="flex flex-col items-center gap-3 mt-4">
-          <motion.p
+        {/* Minimal Progress Details */}
+        <div className="flex flex-col items-center gap-6 mt-12">
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="font-mono text-[10px] text-primary tracking-[0.4em] uppercase"
+            transition={{ delay: 1.5 }}
+            className="flex items-center gap-3"
           >
-            Synthesizing Neural Presence
-          </motion.p>
-          <div className="w-48 h-[1px] bg-white/5 relative overflow-hidden rounded-full">
+            <span className="font-mono text-[9px] text-[#22D3EE]/80 tracking-[0.8em] uppercase drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]">Synthesizing Presence</span>
+            <div className="w-1 h-1 rounded-full bg-[#22D3EE] animate-pulse shadow-[0_0_10px_#22D3EE]" />
+          </motion.div>
+          <div className="w-48 h-[2px] bg-white/5 relative overflow-hidden rounded-full">
             <motion.div
               initial={{ x: '-100%' }}
               animate={{ x: '100%' }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: 'linear' }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-[#22D3EE] to-transparent shadow-[0_0_15px_rgba(34,211,238,0.6)]"
             />
           </div>
         </div>
       </div>
-
     </motion.div>
-
-
   )
 }
-
-
-
