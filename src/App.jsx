@@ -18,7 +18,7 @@ function App() {
     // Synchronize with Loader.jsx timeout
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 3500)
+    }, 2800)
     return () => clearTimeout(timer)
   }, [])
 
@@ -29,9 +29,13 @@ function App() {
       </AnimatePresence>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: loading ? 0 : 1 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0, scale: 0.98, y: 15 }}
+        animate={{ 
+          opacity: loading ? 0 : 1,
+          scale: loading ? 0.98 : 1,
+          y: loading ? 15 : 0
+        }}
+        transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <Navbar />
         <main className="overflow-x-hidden w-full max-w-[100vw]">

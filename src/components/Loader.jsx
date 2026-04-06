@@ -98,7 +98,7 @@ export default function Loader() {
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 1.2, ease: "easeInOut" } }}
+      exit={{ opacity: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
       className="fixed inset-0 bg-[#020408] z-[99999] flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Neural Structure Background */}
@@ -185,45 +185,33 @@ export default function Loader() {
           </div>
         </div>
 
-        {/* Minimal Progress Details */}
-        <div className="flex flex-col items-center gap-4 mt-12">
+        {/* Minimal Progress Details - Shifted Upwards */}
+        <div className="flex flex-col items-center gap-3 mt-8">
           
-          {/* Sequential DEVS Text (Significantly Enlarged) */}
-          <div className="flex items-center justify-center gap-3 mb-3 ml-6">
+          {/* Upscaled Premium DEVS Branding - Single Pass Entrance */}
+          <div className="flex items-center justify-center gap-2 mb-3 pl-[0.8em]">
             {['D', 'E', 'V', 'S'].map((char, i) => (
               <motion.span
                 key={i}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ 
-                  opacity: [0, 1, 0.6, 1],
-                  y: 0 
-                }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  opacity: {
-                    times: [0, 0.2, 0.5, 1],
-                    delay: 1.5 + (i * 0.2),
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatDelay: 0.5
-                  },
-                  y: {
-                    delay: 1.5 + (i * 0.2),
-                    duration: 0.8,
-                    ease: "easeOut"
-                  }
+                  delay: 1.3 + (i * 0.1),
+                  duration: 1.2,
+                  ease: [0.22, 1, 0.36, 1]
                 }}
-                className="text-[18px] md:text-[22px] font-mono text-white font-black tracking-[1.5em] drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                className="text-[18px] md:text-[22px] font-sans font-black tracking-[0.8em] text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-blue-600 drop-shadow-[0_0_12px_rgba(34,211,238,0.3)]"
               >
                 {char}
               </motion.span>
             ))}
           </div>
 
-          <div className="w-56 h-[2px] bg-white/5 relative overflow-hidden rounded-full">
+          <div className="w-56 h-[2.5px] bg-white/5 relative overflow-hidden rounded-full">
             <motion.div
               initial={{ x: '-100%' }}
               animate={{ x: '100%' }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 2.2, ease: "easeInOut" }}
               className="absolute inset-0 bg-gradient-to-r from-transparent via-[#22D3EE] to-transparent shadow-[0_0_15px_rgba(34,211,238,0.6)]"
             />
           </div>
