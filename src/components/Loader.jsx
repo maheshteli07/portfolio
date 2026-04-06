@@ -186,17 +186,40 @@ export default function Loader() {
         </div>
 
         {/* Minimal Progress Details */}
-        <div className="flex flex-col items-center gap-6 mt-12">
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="flex items-center gap-3"
-          >
-            <span className="font-mono text-[9px] text-[#22D3EE]/80 tracking-[0.8em] uppercase drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]">Synthesizing Presence</span>
-            <div className="w-1 h-1 rounded-full bg-[#22D3EE] animate-pulse shadow-[0_0_10px_#22D3EE]" />
-          </motion.div>
-          <div className="w-48 h-[2px] bg-white/5 relative overflow-hidden rounded-full">
+        <div className="flex flex-col items-center gap-4 mt-12">
+          
+          {/* Sequential DEVS Text (Significantly Enlarged) */}
+          <div className="flex items-center justify-center gap-3 mb-3 ml-6">
+            {['D', 'E', 'V', 'S'].map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ 
+                  opacity: [0, 1, 0.6, 1],
+                  y: 0 
+                }}
+                transition={{
+                  opacity: {
+                    times: [0, 0.2, 0.5, 1],
+                    delay: 1.5 + (i * 0.2),
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatDelay: 0.5
+                  },
+                  y: {
+                    delay: 1.5 + (i * 0.2),
+                    duration: 0.8,
+                    ease: "easeOut"
+                  }
+                }}
+                className="text-[18px] md:text-[22px] font-mono text-white font-black tracking-[1.5em] drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+              >
+                {char}
+              </motion.span>
+            ))}
+          </div>
+
+          <div className="w-56 h-[2px] bg-white/5 relative overflow-hidden rounded-full">
             <motion.div
               initial={{ x: '-100%' }}
               animate={{ x: '100%' }}
