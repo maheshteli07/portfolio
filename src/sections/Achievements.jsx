@@ -1,107 +1,112 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
 import { ACHIEVEMENTS } from '../utils/data'
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
+function AchievementRow({ item, isLast, index }) {
+  // Track the WHOLE ROW so each line only draws when its own row enters view
+  const rowRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: rowRef,
+    offset: ['start 80%', 'center 35%'],
+  })
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 24,
+    restDelta: 0.001,
+  })
 
-const itemVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1.0,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
+  return (
+    <div ref={rowRef} className="flex gap-4 md:gap-6 items-start">
+      {/* ── Left column: icon + connector line ── */}
+      <div className="flex flex-col items-center flex-shrink-0 self-stretch">
+        {/* Icon node */}
+        <motion.div
+          className="w-10 h-10 rounded-lg border flex items-center justify-center text-lg bg-bg flex-shrink-0 z-10"
+          style={{ borderColor: `${item.color}30`, color: item.color }}
+          initial={{ scale: 0.7, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20, delay: index * 0.06 }}
+        >
+          {item.icon}
+        </motion.div>
+
+        {/* Connector line — only between items */}
+        {!isLast && (
+          <div className="relative flex-1 w-[2px] mt-2 min-h-[32px] hidden sm:block">
+            <div className="absolute inset-0 rounded-full bg-white/5" />
+            <motion.div
+              className="absolute inset-0 rounded-full origin-top"
+              style={{ scaleY, backgroundColor: item.color, opacity: 0.65 }}
+            />
+          </div>
+        )}
+      </div>
+
+      {/* ── Right column: content card ── */}
+      <motion.div
+        className={`flex-1 ${!isLast ? 'pb-7 md:pb-10' : ''}`}
+        initial={{ opacity: 0, x: -14 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          type: 'spring',
+          stiffness: 200,
+          damping: 22,
+          delay: index * 0.07,
+        }}
+      >
+        <div className="glass-card p-4 md:p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors duration-300">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
+            <div className="flex-1">
+              <span className="font-mono text-[10px] md:text-xs text-accent/60 font-bold uppercase tracking-widest">
+                {item.year}
+              </span>
+              <h3 className="font-display font-semibold text-base md:text-lg text-bright tracking-tight mt-0.5">
+                {item.title}
+              </h3>
+            </div>
+            {item.score && (
+              <div className="inline-flex items-center self-start px-2.5 py-1 rounded-md bg-accent/5 border border-accent/10 flex-shrink-0 sm:ml-2">
+                <span className="text-xs font-bold text-accent">{item.score}</span>
+              </div>
+            )}
+          </div>
+          <p className="text-xs md:text-sm text-muted/80 leading-relaxed">
+            {item.detail}
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  )
 }
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="scroll-mt-16 py-10 md:py-16 px-0 relative overflow-hidden">
-      {/* Background animation */}
-      <motion.div
-        animate={{ y: [0, -8, 0], x: [0, 4, 0] }}
-        transition={{ duration: 15, repeat: Infinity }}
-        className="absolute top-20 right-20 w-72 h-72 bg-accent2/10 rounded-full blur-3xl pointer-events-none"
-      />
+    <section
+      id="achievements"
+      className="scroll-mt-16 py-12 md:py-20 px-4 md:px-6 relative overflow-hidden"
+    >
+      <div className="max-w-4xl mx-auto relative z-10 text-left">
+        <SectionHeading
+          tag="Milestones"
+          title="Achievements"
+          subtitle="A summary of my competitive accomplishments and key milestones."
+        />
 
-      <div className="flex justify-center w-full">
-        <div className="max-w-6xl relative z-10 w-full px-6">
-          <SectionHeading
-            title="Achievements"
-            subtitle="Milestones and accomplishments that demonstrate my commitment to excellence."
-          />
-
-          <div className="relative">
-            {/* Timeline line */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: 'easeOut' }}
-              className="absolute left-5 md:left-6 top-0 bottom-0 w-1 md:w-1.5 bg-gradient-to-b from-accent via-accent2/50 to-transparent hidden sm:block origin-top"
+        <div className="mt-8 md:mt-12">
+          {ACHIEVEMENTS.map((item, index) => (
+            <AchievementRow
+              key={item.id}
+              item={item}
+              index={index}
+              isLast={index === ACHIEVEMENTS.length - 1}
             />
-
-            <motion.div
-              className="flex flex-col gap-4 md:gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {ACHIEVEMENTS.map((item, i) => (
-                <motion.div
-                  key={i}
-                  variants={itemVariants}
-                  whileHover={{ x: 6 }}
-                  className="flex gap-4 md:gap-5 items-start transition-all"
-                >
-                  {/* Node */}
-                  <motion.div
-                    className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg border items-center justify-center text-lg md:text-xl font-bold z-10 bg-bg hidden sm:flex flex-col"
-                    style={{ borderColor: `${item.color}40`, color: item.color }}
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.2 }}
-                  >
-                    {item.icon}
-                  </motion.div>
-
-                  {/* Content */}
-                  <motion.div
-                    className="glass-card rounded-lg p-4 flex-1 flex flex-col items-start gap-3 md:gap-1.5 hover:border-accent/50 text-left"
-                    whileHover={{ scale: 1.02, y: -4 }}
-                  >
-                    <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between gap-2 md:gap-3 w-full">
-                      <motion.h3
-                        className="font-display font-bold text-base md:text-lg text-bright hover:text-accent transition-colors"
-                      >
-                        {item.title}
-                      </motion.h3>
-                      <motion.span
-                        className="font-mono text-xs px-3 py-1 md:px-2.5 md:py-1 rounded-full border font-semibold"
-                        style={{ borderColor: `${item.color}30`, color: item.color }}
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        {item.year}
-                      </motion.span>
-                    </div>
-                    <p className="text-xs md:text-sm text-muted leading-relaxed text-left w-full">{item.detail}</p>
-                  </motion.div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   )
 }
+
