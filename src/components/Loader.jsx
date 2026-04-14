@@ -103,14 +103,14 @@ export default function Loader() {
     >
       {/* Neural Structure Background */}
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50" />
-      
+
       {/* Subtle Scanline Overlay */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,4,8,0.6)_100%)] z-0" />
 
       {/* Central Branding: High-Luminosity Orbital "MT" Logotype */}
       <div className="relative z-10 flex flex-col items-center">
         <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center">
-          
+
           {/* Enhanced "Neural Light" Glow (High Luminosity) */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -143,7 +143,7 @@ export default function Loader() {
             className="absolute inset-0 w-full h-full"
             viewBox="0 0 100 100"
           >
-             <circle
+            <circle
               cx="50" cy="50" r="42"
               fill="none"
               stroke="#FFFFFF"
@@ -155,7 +155,7 @@ export default function Loader() {
 
           {/* Inner Glowing Orbit / Sphere */}
           <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center border border-white/10 bg-white/[0.03] backdrop-blur-md shadow-[0_0_40px_rgba(34,211,238,0.2),inset_0_0_20px_rgba(34,211,238,0.15)]">
-            
+
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
               <defs>
                 <linearGradient id="mt-luxury-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -187,7 +187,7 @@ export default function Loader() {
 
         {/* Minimal Progress Details - Shifted Upwards */}
         <div className="flex flex-col items-center gap-3 mt-8">
-          
+
           {/* Upscaled Premium DEVS Branding - Single Pass Entrance */}
           <div className="flex items-center justify-center gap-2 mb-3 pl-[0.8em]">
             {['D', 'E', 'V', 'S'].map((char, i) => (

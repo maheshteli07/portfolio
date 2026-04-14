@@ -29,16 +29,16 @@ function App() {
       </AnimatePresence>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.98, y: 15 }}
-        animate={{ 
-          opacity: loading ? 0 : 1,
-          scale: loading ? 0.98 : 1,
-          y: loading ? 15 : 0
+        initial={{ opacity: 0, y: 20, scale: 0.98 }}
+        animate={!loading ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.98 }}
+        transition={{
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1],
+          delay: 0.1
         }}
-        transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <Navbar />
-        <main className="overflow-x-hidden w-full max-w-[100vw]">
+        <Navbar loading={loading} />
+        <main className="overflow-x-hidden w-full max-w-[100vw] selection:bg-primary/30 selection:text-primary">
           <Hero />
           <About />
           <Skills />

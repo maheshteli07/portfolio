@@ -6,20 +6,34 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: 0.45,
+      delayChildren: 0.6,
     },
   },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30, x: -100 },
   visible: {
     opacity: 1,
     y: 0,
+    x: 0,
     transition: {
-      duration: 1.0,
-      ease: 'easeOut',
+      duration: 1.2,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+}
+
+const buttonVariants = {
+  hidden: { opacity: 0, y: 30, x: 100 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: {
+      duration: 1.2,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 }
@@ -58,33 +72,12 @@ export default function Hero() {
           Welcome to my portfolio
         </motion.p>
 
-        <motion.h1
-          variants={itemVariants}
-          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-bright mb-8 leading-tight"
-        >
-          <motion.div
-            className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            <motion.span
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 1.0 }}
-              className="font-bold"
-            >
-              Mahesh Basavaraj
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 1.0 }}
-              className="font-bold"
-            >
-              Teli
-            </motion.span>
-          </motion.div>
-        </motion.h1>
+        <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-bright mb-8 leading-tight">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3">
+            <motion.span variants={itemVariants} className="font-bold">Mahesh Basavaraj</motion.span>
+            <motion.span variants={itemVariants} className="font-bold">Teli</motion.span>
+          </div>
+        </div>
 
         <motion.p
           variants={itemVariants}
@@ -101,7 +94,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          variants={itemVariants}
+          variants={buttonVariants}
           className="flex flex-col sm:flex-row gap-6 justify-center mt-12"
         >
           <motion.a

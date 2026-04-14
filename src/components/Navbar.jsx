@@ -35,9 +35,9 @@ function MagneticItem({ item, index, isActive }) {
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={{ x: springX, y: springY, letterSpacing: '0.18em' }}
-      initial={{ opacity: 0, y: -14 }}
+      initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.15 + index * 0.09, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ delay: 1.1 + index * 0.15, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`relative px-4 py-2 text-[16px] font-bold tracking-[0.18em] uppercase group cursor-pointer select-none transition-all duration-500 ${isActive ? 'text-white' : ''}`}
     >
       {/* Active background or Hover background */}
@@ -230,7 +230,7 @@ function MobileMenu({ isOpen, setIsOpen, activeItem }) {
 }
 
 /* ── Main Navbar ─────────────────────────────────────────── */
-export default function Navbar() {
+export default function Navbar({ loading }) {
   const [isOpen, setIsOpen] = useState(false)
   const [activeItem, setActiveItem] = useState('hero')
 
@@ -263,9 +263,9 @@ export default function Navbar() {
     <>
       <motion.nav
         className="fixed top-0 left-0 right-0 z-40"
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ y: -150, opacity: 0 }}
+        animate={!loading ? { y: 0, opacity: 1 } : { y: -150, opacity: 0 }}
+        transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
       >
         {/* Thin gold progress line at very top */}
         <motion.div
