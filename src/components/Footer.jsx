@@ -78,7 +78,7 @@ export default function Footer() {
           className="text-center"
         >
           <p className="text-base text-muted">
-            © 2024 Mahesh Teli. All rights reserved.
+            © Mahesh Teli
           </p>
           <p className="text-sm text-muted/60 mt-2 font-mono">
             Designed & Built with React, Tailwind & Framer Motion

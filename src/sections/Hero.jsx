@@ -83,7 +83,7 @@ export default function Hero() {
           variants={itemVariants}
           className="text-lg sm:text-xl md:text-2xl text-muted mb-6"
         >
-          MERN Stack Developer | DSA Enthusiast | Problem Solver
+          MERN Stack Developer | DSA Enthusiast | Core Computing
         </motion.p>
 
         <motion.p

@@ -8,7 +8,7 @@ function AchievementRow({ item, isLast, index }) {
   const rowRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: rowRef,
-    offset: ['start 80%', 'center 35%'],
+    offset: ['start 85%', 'end 85%'],
   })
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 80,
@@ -26,7 +26,7 @@ function AchievementRow({ item, isLast, index }) {
           style={{ borderColor: `${item.color}30`, color: item.color }}
           initial={{ scale: 0.7, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, margin: '0px 0px -15% 0px' }}
           transition={{ type: 'spring', stiffness: 300, damping: 20, delay: index * 0.06 }}
         >
           {item.icon}
@@ -49,7 +49,7 @@ function AchievementRow({ item, isLast, index }) {
         className={`flex-1 ${!isLast ? 'pb-7 md:pb-10' : ''}`}
         initial={{ opacity: 0, x: -14 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, margin: '0px 0px -15% 0px' }}
         transition={{
           type: 'spring',
           stiffness: 200,

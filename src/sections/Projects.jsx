@@ -62,7 +62,7 @@ export default function Projects() {
               viewport={{ once: true, margin: '-50px' }}
             >
               {projectCards.map((project, idx) => (
-                <motion.div key={project.id} variants={itemVariants} className="group relative w-full md:w-[calc(50%-12px)] lg:w-[calc(50%-12px)]">
+                <motion.div key={project.id} variants={itemVariants} className="group relative w-full md:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] flex flex-col">
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     initial={false}
@@ -71,7 +71,7 @@ export default function Projects() {
                   <motion.div
                     whileHover={{ y: -6 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
-                    className="relative glass-card rounded-2xl p-6 md:p-8 flex flex-col gap-5 border border-accent/20 group-hover:border-accent/40 transition-all duration-300 min-h-[340px] md:min-h-[360px]"
+                    className="relative flex-1 glass-card rounded-2xl p-6 md:p-8 flex flex-col gap-5 border border-accent/20 group-hover:border-accent/40 transition-all duration-300 min-h-[340px] md:min-h-[360px]"
                   >
                     <div className="flex flex-col md:flex-row items-start justify-between gap-5 text-left">
                       <div className="flex-1 flex flex-col items-start">
@@ -106,7 +106,7 @@ export default function Projects() {
                       </ul>
                     </div>
 
-                    <div className="flex flex-col items-start text-left">
+                    <div className="flex flex-col items-start text-left mt-auto pt-2">
                       <h4 className="font-semibold text-lg text-bright mb-3">Tech Stack</h4>
                       <div className="flex flex-wrap justify-start gap-2.5">
                         {project.tech.map((tech, i) => (
@@ -132,7 +132,7 @@ export default function Projects() {
               viewport={{ once: true, margin: '-50px' }}
             >
               {technicalContributionCards.map((project, idx) => (
-                <motion.div key={project.id} variants={itemVariants} className="group relative w-full md:w-[calc(50%-12px)] lg:w-[calc(50%-12px)]">
+                <motion.div key={project.id} variants={itemVariants} className="group relative w-full md:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] flex flex-col">
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     initial={false}
@@ -141,7 +141,7 @@ export default function Projects() {
                   <motion.div
                     whileHover={{ y: -6 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
-                    className="relative glass-card rounded-2xl p-6 md:p-8 flex flex-col gap-5 border border-accent/20 group-hover:border-accent/40 transition-all duration-300 min-h-[340px] md:min-h-[360px]"
+                    className="relative flex-1 glass-card rounded-2xl p-6 md:p-8 flex flex-col gap-5 border border-accent/20 group-hover:border-accent/40 transition-all duration-300 min-h-[340px] md:min-h-[360px]"
                   >
                     <div className="flex flex-col md:flex-row items-start justify-between gap-5 text-left">
                       <div className="flex-1 flex flex-col items-start">
@@ -173,7 +173,7 @@ export default function Projects() {
                       </ul>
                     </div>
 
-                    <div className="flex flex-col items-start text-left">
+                    <div className="flex flex-col items-start text-left mt-auto pt-2">
                       <h4 className="font-semibold text-lg text-bright mb-3">Tech Stack</h4>
                       <div className="flex flex-wrap justify-start gap-2.5">
                         {project.tech.map((tech, i) => (

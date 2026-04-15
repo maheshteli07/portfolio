@@ -43,7 +43,7 @@ export const PROJECTS = [
     id: 1,
     title: 'QR-Based Smart Retail Checkout & Exit Verification System',
     description: 'A comprehensive retail solution with QR code-based digital cart, secure payment gateway, and theft prevention through exit verification.',
-    tech: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Razorpay API', 'QR Libraries'],
+    tech: ['React.js', 'Node.js', 'Express', 'MongoDB', 'QR Libraries'],
     features: [
       'QR code scanning for item addition to digital cart',
       'Secure digital payment system integration',
