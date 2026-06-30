@@ -113,7 +113,7 @@ export const ACHIEVEMENTS = [
   {
     id: 1,
     year: '2022',
-    title: 'Ranked 7th at the State Level in SSLC board examinations',
+    title: 'Ranked 7th at the State Level in SSLC board examinations.',
     detail: 'Achieved 7th rank at state level in Secondary School Leaving Certificate examination with 99.04% score.',
     score: '99.04%',
     icon: '🏆',
